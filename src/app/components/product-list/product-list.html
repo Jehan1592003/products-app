@@ -1,0 +1,19 @@
+
+<select [(ngModel)]="filterOption">
+  <option value="all">الكل</option>
+  <option value="available">المتوفر فقط</option>
+  <option value="unavailable">غير المتوفر فقط</option>
+</select>
+
+<div class="card" style="width: 18rem;" *ngFor="let pro of filteredProducts ; trackBy: trackByProductId">
+  <img class="card-img-top" [src]="pro.imageUrl" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ pro.name }}</h5>
+    <p class="card-text">
+      السعر: {{ pro.price }}
+      <span *ngIf="pro.available" [ngClass]="'text-success'">متوفر</span>
+      <span *ngIf="!pro.available" [ngClass]="'text-danger'">غير متوفر</span>
+    </p>
+    <button type="button" class="btn btn-primary" (click)="goToDetails(pro.id)">تفاصيل المنتج</button>
+  </div>
+</div>

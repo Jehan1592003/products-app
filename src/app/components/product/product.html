@@ -1,0 +1,12 @@
+
+<div class="container" *ngIf="productDetails">
+  <h2>{{productDetails.name }}</h2>
+  <img [src]="productDetails.imageUrl" alt="{{ productDetails.name }}">
+  <p>السعر: {{ productDetails.price }} $$</p>
+  <p>الحالة: 
+    <span [ngClass]="{'text-success': productDetails.available, 'text-danger': !productDetails.available}">
+      {{ productDetails.available ? 'متوفر' : 'غير متوفر' }}
+    </span>
+  </p>
+  <button type="button" class="btn btn-secondary" (click)="goToList()">العودة للقائمة</button>
+</div>
