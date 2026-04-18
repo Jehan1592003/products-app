@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class Product implements OnInit {
   productDetails:any={}
+  from:string='';
    constructor(
     private route: ActivatedRoute,
     private productService: ServiceProduct,
@@ -20,6 +21,7 @@ export class Product implements OnInit {
  ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.productDetails = this.productService.getProductById(id);
+    this.from=this.route.snapshot.queryParams['from'];
   }
   goToList() {
   this.router.navigate(['/']);
