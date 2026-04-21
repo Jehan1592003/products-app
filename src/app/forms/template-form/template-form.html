@@ -1,0 +1,67 @@
+<form #myForm="ngForm">
+  <div>
+    <label>Name:</label>
+    <input type="text" name="name" [(ngModel)]="name" #nameControl="ngModel" required (ngModelChange)="onNameChange($event)"  />
+    <div>
+       @if (nameControl.invalid && (nameControl.touched || nameControl.dirty))
+        {
+            @if(nameControl.errors?.['required']){
+                <p>name is required</p>
+            }
+
+        }
+    </div>
+  </div>
+
+  <div>
+    <label >Email:</label>
+    <input type="email" name="email" [(ngModel)]="email" #emailControl="ngModel" [required]="isSubscribed" email/>
+    <div>
+       @if (emailControl.invalid && (emailControl.touched || emailControl.dirty))
+        {
+            @if(emailControl.errors?.['required']){
+                <p>email is required</p>
+            }
+            @if(emailControl.errors?.['email']){
+                <p>صيغ الايميل غير صحيحة</p>
+            }
+
+        }
+    </div>
+  </div>
+
+  <div>
+    <label>Password:</label>
+    <input type="password" name="password" [(ngModel)]="password" #passwordControl="ngModel" required  minlength="6"/>
+    <div>
+       @if (passwordControl.invalid && (passwordControl.touched || passwordControl.dirty))
+        {
+            @if(passwordControl.errors?.['required']){
+                <p>password is required</p>
+            }
+            @if(passwordControl.errors?.['minlength']){
+                <p>كلمة السر يجب ان تكون 6 احرف </p>
+            }
+
+        }
+    </div>
+  </div>
+
+         <div style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+            <h4>حالة الفورم:</h4>
+            <p>✅ valid: {{ myForm.valid }}</p>
+            <p>❌ invalid: {{ myForm.invalid }}</p>
+            <p>✏️ dirty: {{ myForm.dirty }}</p>
+            <p>👆 touched: {{ myForm.touched }}</p>
+        </div>
+  <input type="checkbox" [(ngModel)]="isSubscribed" name="subscribe" >Subscribe
+  <button type="submit"  [disabled]="myForm.invalid">Submit</button>
+  <button type="button" (click)="myForm.resetForm()">Reset</button>
+</form>
+
+<div style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+  <h4>📝 Real-time Preview:</h4>
+  <p>NamepControl: {{ name }}</p>
+  <p>EmailControl: {{ email }}</p>
+  <p>PasswordControl: {{ password }}</p>
+</div>
