@@ -24,6 +24,6 @@ export class Product implements OnInit {
     this.from=this.route.snapshot.queryParams['from'];
   }
   goToList() {
-  this.router.navigate(['/']);
+  this.router.navigate(['/product-list']);
 }
 }

@@ -1,19 +1,31 @@
 
-<select [(ngModel)]="filterOption">
-  <option value="all">الكل</option>
-  <option value="available">المتوفر فقط</option>
-  <option value="unavailable">غير المتوفر فقط</option>
-</select>
 
-<div class="card" style="width: 18rem;" *ngFor="let pro of filteredProducts ; trackBy: trackByProductId">
-  <img class="card-img-top" [src]="pro.imageUrl" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{ pro.name }}</h5>
-    <p class="card-text">
-      السعر: {{ pro.price }}
-      <span *ngIf="pro.available" [ngClass]="'text-success'">متوفر</span>
-      <span *ngIf="!pro.available" [ngClass]="'text-danger'">غير متوفر</span>
-    </p>
-    <button type="button" class="btn btn-primary" (click)="goToDetails(pro.id)">تفاصيل المنتج</button>
+<div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <select [(ngModel)]="filterOption" class="form-select">
+        <option value="all">الكل</option>
+        <option value="available">المتوفر فقط</option>
+        <option value="unavailable">غير المتوفر فقط</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let pro of filteredProducts; trackBy: trackByProductId">
+      <div class="card h-100">
+        <img class="card-img-top" [src]="pro.imageUrl" [alt]="pro.name" style="height: 200px; object-fit: cover;">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ pro.name }}</h5>
+          <p class="card-text">
+            السعر: {{ pro.price }} 
+            <br>
+            <span *ngIf="pro.available" class="text-success fw-bold">متوفر</span>
+            <span *ngIf="!pro.available" class="text-danger fw-bold">غير متوفر</span>
+          </p>
+          <button type="button" class="btn btn-primary mt-auto" (click)="goToDetails(pro.id)">تفاصيل المنتج</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

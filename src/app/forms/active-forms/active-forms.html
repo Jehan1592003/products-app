@@ -1,0 +1,107 @@
+<form [formGroup]="myform" (ngSubmit)="handleMySubmit($event)">
+  
+  <div class="form-group">
+    <label for="exampleInputFirstName">FirstName</label>
+    <input type="text" class="form-control" id="exampleInputFirstName" 
+    formControlName="firstName"
+     placeholder="Enter your FirstName" name="firstname">
+  <div>
+    @if(myform.get('firstName')?.invalid && myform.get('firstName')?.touched || myform.get('firstName')?.dirty){
+      @if (myform.get('firstName')?.errors?.['required']){
+        <p>الاسم الأول مطلوب</p>
+      }
+      @if (myform.get('firstName')?.errors?.['minlength']){
+        <p>الاسم الأول يجب أن يكون 3 أحرف على الأقل</p>
+      }
+    }
+  </div>
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleInputLastName">LastName</label>
+    <input type="text" class="form-control" id="exampleInputLastName" 
+    formControlName="lastName"
+    placeholder="Enter your LastName" name="lastname">
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1"
+    formControlName="email"
+    aria-describedby="emailHelp" placeholder="Enter email">
+
+
+       @if(myform.get('email')?.invalid && myform.get('email')?.touched || myform.get('email')?.dirty){
+      @if (myform.get('email')?.errors?.['required']){
+        <p>الايميل مطلوب</p>
+      }
+      @if (myform.get('email')?.errors?.['email']){
+        <p>الايميل يجب انا يكون بصيغة.......</p>
+      }
+    }
+    <div>
+   @if (myform.get('email')?.errors?.['emailTaken']) 
+    {
+       <p>⚠️ هذا الإيميل مستخدم بالفعل</p>
+    }
+    </div>
+  
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="exampleInputusername">username</label>
+    <input type="text" class="form-control" id="exampleInputusername" 
+    formControlName="username"name="username">
+  </div>
+
+
+   <div class="form-group">
+    <label for="exampleInputPassword">password</label>
+    <input type="password" class="form-control" id="exampleInputPassword" 
+    formControlName="password" name="lastname">
+
+      @if(myform.get('password')?.invalid && myform.get('password')?.touched || myform.get('password')?.dirty){
+      @if (myform.get('password')?.errors?.['required']){
+        <p>كلمة السر مطلوبة </p>
+      }
+      @if (myform.get('password')?.errors?.['minlength']){
+        <p>كلمة السر يجب انا تحتوي ع الاقل 6 احرفوارقام</p>
+      }
+    }
+
+  </div>
+
+  <div formGroupName="address">
+
+   <div>
+     <label for="city">city</label>
+     <input type="text" formControlName="city" id="city">
+   </div>
+
+     <div>
+      <label for="street">street</label>
+      <input type="text" formControlName="street" id="street">
+    </div>
+
+     <div>
+      <label for="zipCode">zipCode</label>
+       <input type="number" formControlName="zipCode" id="zipCode">
+     </div>
+
+   </div>
+   
+  <div style="margin-top: 20px; padding: 10px; border: 1px solid #ccc; background: #f9f9f9;">
+    <h4>Form</h4>
+    <p> (valid): {{ myform.valid }}</p>
+    <p>(dirty): {{ myform.dirty }}</p>
+    <p>(touched): {{ myform.touched }}</p>
+  </div>
+  
+    <input type="checkbox"  [checked]="isAdmin" (change)="toggleAdminValidator($event)"> I am an admin
+  <button type="submit"  class="btn btn-primary">Submit</button>
+</form>
