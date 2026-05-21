@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ActiveForms } from './active-forms';
+import { ActiveForm } from './active-form';
 
-describe('ActiveForms', () => {
-  let component: ActiveForms;
-  let fixture: ComponentFixture<ActiveForms>;
+describe('ActiveForm', () => {
+  let component: ActiveForm;
+  let fixture: ComponentFixture<ActiveForm>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ActiveForms],
+      imports: [ActiveForm],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ActiveForms);
+    fixture = TestBed.createComponent(ActiveForm);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
