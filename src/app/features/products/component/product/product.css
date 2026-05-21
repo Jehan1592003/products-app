@@ -1,0 +1,61 @@
+.container {
+  max-width: 600px;
+  margin: 2.5rem auto;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  animation: fadeUp 0.5s ease both;
+}
+ 
+h4 {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+ 
+h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+ 
+.container img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  max-height: 280px;
+  margin-bottom: 1.2rem;
+}
+ 
+.container p {
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+ 
+.btn-secondary {
+  background: transparent !important;
+  border: 2px solid var(--primary) !important;
+  color: var(--primary) !important;
+  border-radius: 30px !important;
+  font-family: 'Tajawal', sans-serif !important;
+  font-weight: 600 !important;
+  padding: 8px 22px !important;
+  transition: all 0.25s ease !important;
+  margin-top: 1rem;
+}
+ 
+.btn-secondary:hover {
+  background: var(--primary) !important;
+  color: white !important;
+}
+ 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

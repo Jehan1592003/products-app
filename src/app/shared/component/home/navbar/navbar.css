@@ -1,4 +1,43 @@
+nav.navbar {
+  background: var(--white) !important;
+  box-shadow: 0 2px 16px rgba(108, 99, 255, 0.10);
+  padding: 0.8rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+ 
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary) !important;
+  letter-spacing: -0.5px;
+}
+ 
+.navbar-brand::before {
+  content: '🛍️ ';
+}
+ 
 .navbar-nav {
-    display: flex !important;
-    flex-direction: row !important;
+  gap: 8px !important;
+}
+ 
+.nav-link {
+  color: var(--text) !important;
+  font-weight: 500;
+  padding: 6px 16px !important;
+  border-radius: 30px;
+  transition: all 0.25s ease;
+  font-size: 0.95rem;
+}
+ 
+.nav-link:hover {
+  background-color: var(--primary);
+  color: var(--white) !important;
+  transform: translateY(-2px);
+}
+ 
+.nav-link.active {
+  background-color: var(--primary);
+  color: var(--white) !important;
 }

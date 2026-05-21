@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+ 
+:root {
+  --primary:     #6c63ff;  
+  --primary-dark:#4e46e5;  
+  --accent:      #ff6584;   
+  --bg:          #f4f6ff;  
+  --white:       #ffffff;
+  --text:        #2d2d3a;   
+  --text-light:  #6b7280;   
+  --success:     #10b981;
+  --danger:      #ef4444;
+  --shadow:      0 4px 20px rgba(108, 99, 255, 0.12);
+  --radius:      14px;
+}
+ 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ 
+body {
+  font-family: 'Tajawal', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+ 
+body::before {
+  content: '';
+  position: fixed;
+  top: -200px;
+  right: -200px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(108,99,255,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
